@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tugas Koding</title>
+
+<style>
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+    margin: 0;
+}
+
+.halaman {
+    display: none;
+    padding-top: 80px;
+}
+
+#halaman1 {
+    display: block;
+}
+
+h1 {
+    color: #b0b0b0;
+    font-size: 26px;
+}
+
+p {
+    color: #b0b0b0;
+    font-size: 16px;
+}
+
+ul {
+    text-align: left;
+    padding-left: 20px;
+}
+
+li {
+    margin: 3px 0;
+}
+
+button {
+    background-color: transparent;
+    color: cyan;
+    border: 2px solid cyan;
+    padding: 12px 25px;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: cyan;
+    color: black;
+}
+
+.card {
+    background-color: #1e1e1e;
+    margin: auto;
+    width: 90%;
+    max-width: 320px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+input {
+    padding: 10px;
+    width: 80%;
+    border-radius: 8px;
+    border: none;
+    margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HALAMAN 1 -->
+<div id="halaman1" class="halaman">
+    <div class="card">
+        <h1>Perkenalan</h1>
+
+        <button onclick="pindah('halaman2')">Masuk</button>
+
+        <p>Ini adalah tugas koding kelompok 4</p>
+        <ul>
+            <li>Aghni Rahma Zanuba</li>
+            <li>Annisa Salsabila</li>
+            <li>Arva Wikia Permana</li>
+            <li>Gustav Herdiansyah</li>
+            <li>Hadaina Hasya Humaira</li>
+            <li>Ivy Ruby Shakira</li>
+            <li>Mahesa Putra Ghoni</li>
+        </ul>
+    </div>
+</div>
+
+<!-- HALAMAN 2 -->
+<div id="halaman2" class="halaman">
+    <div class="card">
+        <h1>X.2 / Zootopia</h1>
+
+        <button onclick="pindah('halaman1')">Kembali</button>
+        <button onclick="pindah('halaman3')">Selanjutnya</button>
+
+        <p>
+        Ini adalah kelas X.2 dengan 37 siswa,
+        terletak di sebelah ruang OSIS dan di depan tangga. Kalau hujan tidak kena, kalau panas tak usah ditanya.
+        </p>
+    </div>
+</div>
+
+<!-- HALAMAN 3 -->
+<div id="halaman3" class="halaman">
+    <div class="card">
+        <h1>Struktur Kelas</h1>
+
+        <button onclick="pindah('halaman2')">Kembali</button>
+        <button onclick="pindah('halaman4')">Selanjutnya</button>
+
+        <div>Wali Kelas: Bapak Rahmat</div>
+        <div>Ketua: Ridhuansyah Putra</div>
+        <div>Wakil: Miftahul Wafa</div>
+        <div>Bendahara 1: Ayra Sulaiman</div>
+        <div>Bendahara 2: Hadaina Hasya Humaira</div>
+        <div>Sekretaris 1: Lystin Iva Priandini</div>
+        <div>Sekretaris 2: Nazwa Aulia Roziana</div>
+    </div>
+</div>
+
+<!-- HALAMAN 4 -->
+<div id="halaman4" class="halaman">
+    <div class="card">
+        <h1>Tanyakan Apapun!</h1>
+
+        <button onclick="pindah('halaman3')">Kembali</button>
+        <button onclick="pindah('halaman1')">Ke Awal</button>
+
+        <p>Tanya tentang kelas:</p>
+
+        <input type="text" id="pertanyaan" placeholder="Contoh: siapa ketua kelas?">
+        <br>
+        <button onclick="jawab()">Tanya</button>
+
+        <p id="jawaban"></p>
+    </div>
+</div>
+
+<script>
+function pindah(id) {
+    var semua = document.getElementsByClassName("halaman");
+    for (var i = 0; i < semua.length; i++) {
+        semua[i].style.display = "none";
+    }
+    document.getElementById(id).style.display = "block";
+}
+
+function jawab() {
+    var tanya = document.getElementById("pertanyaan").value.toLowerCase().trim();
+    var hasil = "";
+
+    if (tanya.includes("wakil ketua") || tanya.includes("wakil")) {
+        hasil = "Wakil Ketua Kelas adalah Miftahul Wafa";
+    }
+    else if (tanya.includes("ketua")) {
+        hasil = "Ketua kelas adalah Ridhuansyah Putra.";
+    } 
+    else if (tanya.includes("wali")) {
+        hasil = "Wali kelas adalah Bapak Rahmat.";
+    } 
+    else if (tanya.includes("bendahara 1")) {
+        hasil = "Bendahara 1 adalah Ayra Sulaiman";
+    }
+    else if (tanya.includes("bendahara 2")) {
+        hasil = "Bendahara 2 adalah Hadaina Hasya Humaira";
+    }
+    else if (tanya.includes("sekretaris 1")) {
+        hasil = "Sekretaris 1 adalah Lystin Iva Priandini";
+    }
+    else if (tanya.includes("sekretaris 2")) {
+        hasil = "Sekretaris 2 adalah Nazwa Aulia Roziana";
+    }
+    else if (tanya.includes("x.2")) {
+        hasil = "X.2 adalah kelas dengan 37 siswa.";
+    } 
+    else if (tanya.includes("total siswa") || tanya.includes("jumlah siswa")) {
+        hasil = "Total siswa ada 37";
+    }
+    else if (tanya.includes("halo") || tanya.includes("hai")) {
+        hasil = "Hai!";
+    }
+    else if (tanya.includes("ucapkan")) {
+        hasil = "Sekian,Terimakasih";
+    }
+    else if (tanya.includes("sadar")) {
+        hasil = "Cogito, ergo sum";
+    }
+    else {
+        const fallback = [
+            "Yang Bikin Males Input Data🙄",
+            "Aku Tahu Aku Tidak Tahu👴",
+            "Tak Punya Jawaban🎤"
+        ];
+        hasil = fallback[Math.floor(Math.random() * fallback.length)];
+    }
+
+    document.getElementById("jawaban").innerText = hasil;
+}
+</script>
+
+</body>
+</html>
